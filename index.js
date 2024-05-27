@@ -25,12 +25,12 @@ app.get('/tracks', async (req, res) => {
     const zipPath = path.join(__dirname, 'public', 'Vultures.zip');
     const extractPath = path.join(__dirname, 'public', 'tracks');
 
-    // Ensure the extract directory exists
+
     if (!fs.existsSync(extractPath)) {
         fs.mkdirSync(extractPath, { recursive: true });
     }
 
-    // Extract the zip file
+
     fs.createReadStream(zipPath)
         .pipe(unzipper.Extract({ path: extractPath }))
         .on('close', () => {
