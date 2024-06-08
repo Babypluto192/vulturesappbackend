@@ -2,8 +2,9 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const unzipper = require('unzipper');
-const News = require('./News')
-
+const News = require('../../OneDrive/Рабочий стол/APP/News')
+const Merch = require('./Merch')
+const Concert = require("./Concert");
 const app = express();
 app.use(express.json());
 
@@ -171,6 +172,16 @@ app.use('/vultures2', express.static(path.join(__dirname, 'public', 'vultures2')
 
 app.get('/news', (req, res) => {
     res.send(News)
+});
+
+
+
+app.get('/merch', (req, res) => {
+    res.send(Merch)
+});
+
+app.get('/concert', (req, res) => {
+    res.send(Concert)
 });
 
 app.use('/images',express.static(path.join(__dirname, 'public', 'images')))
