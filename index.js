@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const unzipper = require('unzipper');
-const News = require('../../OneDrive/Рабочий стол/APP/News')
+const News = require('./News')
 const Merch = require('./Merch')
 const Concert = require("./Concert");
 const app = express();
@@ -185,3 +185,6 @@ app.get('/concert', (req, res) => {
 });
 
 app.use('/images',express.static(path.join(__dirname, 'public', 'images')))
+
+
+app.use('/',express.static(path.join(__dirname, 'public', 'placeholder')))
